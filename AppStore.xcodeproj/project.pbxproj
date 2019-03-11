@@ -16,6 +16,8 @@
 		0F5D3F5D2236E47600DD0C66 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F5C2236E47600DD0C66 /* SearchResultCell.swift */; };
 		0F5D3F602236E9BF00DD0C66 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F5F2236E9BF00DD0C66 /* UIView+Layout.swift */; };
 		0F5D3F622236F05D00DD0C66 /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F612236F05D00DD0C66 /* VerticalStackView.swift */; };
+		0F5D3F652237066C00DD0C66 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F642237066C00DD0C66 /* SearchResult.swift */; };
+		0F5D3F682237142300DD0C66 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F672237142300DD0C66 /* Service.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		0F5D3F5C2236E47600DD0C66 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		0F5D3F5F2236E9BF00DD0C66 /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		0F5D3F612236F05D00DD0C66 /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
+		0F5D3F642237066C00DD0C66 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		0F5D3F672237142300DD0C66 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,8 @@
 		0F5D3F452236D94A00DD0C66 /* AppStore */ = {
 			isa = PBXGroup;
 			children = (
+				0F5D3F66223713F900DD0C66 /* Service */,
+				0F5D3F632237051800DD0C66 /* Model */,
 				0F5D3F5E2236E97100DD0C66 /* help */,
 				0F5D3F5B2236E45000DD0C66 /* View */,
 				0F5D3F582236E12900DD0C66 /* Controller */,
@@ -98,6 +104,22 @@
 				0F5D3F612236F05D00DD0C66 /* VerticalStackView.swift */,
 			);
 			path = help;
+			sourceTree = "<group>";
+		};
+		0F5D3F632237051800DD0C66 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0F5D3F642237066C00DD0C66 /* SearchResult.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0F5D3F66223713F900DD0C66 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				0F5D3F672237142300DD0C66 /* Service.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +194,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F5D3F5A2236E15500DD0C66 /* SearchViewController.swift in Sources */,
+				0F5D3F682237142300DD0C66 /* Service.swift in Sources */,
+				0F5D3F652237066C00DD0C66 /* SearchResult.swift in Sources */,
 				0F5D3F622236F05D00DD0C66 /* VerticalStackView.swift in Sources */,
 				0F5D3F492236D94A00DD0C66 /* TabBarNavController.swift in Sources */,
 				0F5D3F5D2236E47600DD0C66 /* SearchResultCell.swift in Sources */,

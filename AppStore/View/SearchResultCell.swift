@@ -10,6 +10,27 @@ import UIKit
 
 class SearchResultCell: UICollectionViewCell {
     
+    
+    
+    var search : Result? {
+        
+        didSet{
+            
+            if let track = search?.trackName {
+                appTitle.text = track
+  
+            }
+            if let desc = search?.primaryGenreName{
+                appDes.text = desc
+            }
+            if let rating = search?.averageUserRating{
+                appSize.text = String(rating)
+            }
+            
+        }
+        
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .yellow
@@ -67,7 +88,7 @@ class SearchResultCell: UICollectionViewCell {
         btn.widthAnchor.constraint(equalToConstant: 80).isActive = true
         btn.heightAnchor.constraint(equalToConstant: 32).isActive = true
         btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        btn.backgroundColor = .gray
+        btn.backgroundColor = UIColor.gray.withAlphaComponent(0.6)
         return btn
         
         
