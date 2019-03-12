@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SearchResultCell: UICollectionViewCell {
     
@@ -26,6 +27,20 @@ class SearchResultCell: UICollectionViewCell {
             if let rating = search?.averageUserRating{
                 appSize.text = String(rating)
             }
+            if let iconImage = search?.artworkUrl512{
+                icon.sd_setImage(with: URL(string: iconImage), completed: nil)
+            }
+            if let screenShot = search?.screenshotUrls{
+                
+                screenshotImage1.sd_setImage(with: URL(string: screenShot[0]), completed: nil)
+                if screenShot.count > 1 {
+                    screenshotImage2.sd_setImage(with: URL(string: screenShot[1]), completed: nil)
+                    if screenShot.count > 2 {
+                        screenshotImage3.sd_setImage(with: URL(string: screenShot[2]), completed: nil)
+                    }
+                }
+            }
+            
             
         }
         
@@ -33,7 +48,7 @@ class SearchResultCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .yellow
+        self.backgroundColor = .white
         addSubview(stackOverAll)
         stackOverAll.fillSuperview(padding: .init(top: 16, left: 16, bottom: 16, right: 16))
 
@@ -45,7 +60,7 @@ class SearchResultCell: UICollectionViewCell {
     
     let icon : UIImageView = {
         let image = UIImageView()
-        image.backgroundColor = .red
+        image.backgroundColor = .white
         image.layer.cornerRadius = 14
         image.layer.masksToBounds = true
         image.heightAnchor.constraint(equalToConstant: 64).isActive = true
@@ -88,7 +103,7 @@ class SearchResultCell: UICollectionViewCell {
         btn.widthAnchor.constraint(equalToConstant: 80).isActive = true
         btn.heightAnchor.constraint(equalToConstant: 32).isActive = true
         btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        btn.backgroundColor = UIColor.gray.withAlphaComponent(0.6)
+        btn.backgroundColor = UIColor(white: 0.8, alpha: 0.5)
         return btn
         
         
@@ -106,29 +121,23 @@ class SearchResultCell: UICollectionViewCell {
         
     }()
     
-    let screenshotImage1 : UIImageView = {
-        
-        let image = UIImageView()
-        image.backgroundColor = .blue
-        return image
-        
-    }()
     
-    let screenshotImage2 : UIImageView = {
-        
-        let image = UIImageView()
-        image.backgroundColor = .blue
-        return image
-        
-    }()
+    lazy var screenshotImage1 = self.createScreenShotImage()
+    lazy var screenshotImage2 = self.createScreenShotImage()
+    lazy var screenshotImage3 = self.createScreenShotImage()
+
     
-    let screenshotImage3 : UIImageView = {
-        
+    fileprivate func createScreenShotImage() -> UIImageView {
         let image = UIImageView()
-        image.backgroundColor = .blue
+        image.backgroundColor = .white
+        image.layer.cornerRadius = 9
+        image.clipsToBounds = true
+        image.layer.borderWidth = 0.8
+        image.layer.borderColor = UIColor(white: 0.8, alpha: 0.5).cgColor
         return image
         
-    }()
+    }
+    
     
     lazy var stackScreenShot : UIStackView = {
         
