@@ -9,7 +9,7 @@
 import UIKit
 
 
-class SearchViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout ,UISearchBarDelegate {
+class SearchViewController: BaseViewController, UICollectionViewDelegateFlowLayout ,UISearchBarDelegate {
     
     
     fileprivate let identifier = "cellId"
@@ -40,14 +40,7 @@ class SearchViewController: UICollectionViewController, UICollectionViewDelegate
 
     }
 
-    init(){
-        super.init(collectionViewLayout: UICollectionViewFlowLayout())
-        
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+   
     
     fileprivate func setUpSearchBar(){
         definesPresentationContext = true

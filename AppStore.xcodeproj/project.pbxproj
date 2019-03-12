@@ -18,6 +18,11 @@
 		0F5D3F622236F05D00DD0C66 /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F612236F05D00DD0C66 /* VerticalStackView.swift */; };
 		0F5D3F652237066C00DD0C66 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F642237066C00DD0C66 /* SearchResult.swift */; };
 		0F5D3F682237142300DD0C66 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F672237142300DD0C66 /* Service.swift */; };
+		0F5D3F6C22384BC500DD0C66 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F6B22384BC500DD0C66 /* AppViewController.swift */; };
+		0F5D3F6E22384D0D00DD0C66 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F6D22384D0D00DD0C66 /* BaseViewController.swift */; };
+		0F5D3F7022384F4A00DD0C66 /* AppsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F6F22384F4A00DD0C66 /* AppsCell.swift */; };
+		0F5D3F722238551800DD0C66 /* HorizontalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F712238551800DD0C66 /* HorizontalViewController.swift */; };
+		0F5D3F7622385D9D00DD0C66 /* AppRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F7522385D9D00DD0C66 /* AppRowCell.swift */; };
 		5FCE8F3A9A407C331B55D40D /* Pods_AppStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A185EACDA1F0C84EB85D61AB /* Pods_AppStore.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +41,11 @@
 		0F5D3F612236F05D00DD0C66 /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
 		0F5D3F642237066C00DD0C66 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		0F5D3F672237142300DD0C66 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		0F5D3F6B22384BC500DD0C66 /* AppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
+		0F5D3F6D22384D0D00DD0C66 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		0F5D3F6F22384F4A00DD0C66 /* AppsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsCell.swift; sourceTree = "<group>"; };
+		0F5D3F712238551800DD0C66 /* HorizontalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalViewController.swift; sourceTree = "<group>"; };
+		0F5D3F7522385D9D00DD0C66 /* AppRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRowCell.swift; sourceTree = "<group>"; };
 		932228F3452BF7B395F7A249 /* Pods-AppStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppStore/Pods-AppStore.debug.xcconfig"; sourceTree = "<group>"; };
 		A185EACDA1F0C84EB85D61AB /* Pods_AppStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -99,8 +109,9 @@
 		0F5D3F582236E12900DD0C66 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0F5D3F6A22384B7200DD0C66 /* App */,
+				0F5D3F6922384B6800DD0C66 /* Search */,
 				0F5D3F482236D94A00DD0C66 /* TabBarNavController.swift */,
-				0F5D3F592236E15500DD0C66 /* SearchViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -108,7 +119,8 @@
 		0F5D3F5B2236E45000DD0C66 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0F5D3F5C2236E47600DD0C66 /* SearchResultCell.swift */,
+				0F5D3F7422385D7A00DD0C66 /* Search */,
+				0F5D3F7322385D6800DD0C66 /* App */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -118,6 +130,7 @@
 			children = (
 				0F5D3F5F2236E9BF00DD0C66 /* UIView+Layout.swift */,
 				0F5D3F612236F05D00DD0C66 /* VerticalStackView.swift */,
+				0F5D3F6D22384D0D00DD0C66 /* BaseViewController.swift */,
 			);
 			path = help;
 			sourceTree = "<group>";
@@ -136,6 +149,40 @@
 				0F5D3F672237142300DD0C66 /* Service.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		0F5D3F6922384B6800DD0C66 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				0F5D3F592236E15500DD0C66 /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		0F5D3F6A22384B7200DD0C66 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				0F5D3F6B22384BC500DD0C66 /* AppViewController.swift */,
+				0F5D3F712238551800DD0C66 /* HorizontalViewController.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		0F5D3F7322385D6800DD0C66 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				0F5D3F6F22384F4A00DD0C66 /* AppsCell.swift */,
+				0F5D3F7522385D9D00DD0C66 /* AppRowCell.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		0F5D3F7422385D7A00DD0C66 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				0F5D3F5C2236E47600DD0C66 /* SearchResultCell.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		EA3BEF3F0996A941B258B902 /* Frameworks */ = {
@@ -271,8 +318,13 @@
 				0F5D3F652237066C00DD0C66 /* SearchResult.swift in Sources */,
 				0F5D3F622236F05D00DD0C66 /* VerticalStackView.swift in Sources */,
 				0F5D3F492236D94A00DD0C66 /* TabBarNavController.swift in Sources */,
+				0F5D3F6E22384D0D00DD0C66 /* BaseViewController.swift in Sources */,
 				0F5D3F5D2236E47600DD0C66 /* SearchResultCell.swift in Sources */,
+				0F5D3F6C22384BC500DD0C66 /* AppViewController.swift in Sources */,
+				0F5D3F7022384F4A00DD0C66 /* AppsCell.swift in Sources */,
 				0F5D3F472236D94A00DD0C66 /* AppDelegate.swift in Sources */,
+				0F5D3F7622385D9D00DD0C66 /* AppRowCell.swift in Sources */,
+				0F5D3F722238551800DD0C66 /* HorizontalViewController.swift in Sources */,
 				0F5D3F602236E9BF00DD0C66 /* UIView+Layout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
