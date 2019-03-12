@@ -12,11 +12,11 @@ class Service {
     
     static let shared = Service() // singleton
     
-    func fetchApp(completion:@escaping ([Result],Error?)->()){
+    func fetchApp(search:String,completion:@escaping ([Result],Error?)->()){
         print("fetching contents from itunes ")
     
     
-    let url = "https://itunes.apple.com/search?term=stockx&entity=software"
+    let url = "https://itunes.apple.com/search?term=\(search)&entity=software"
     guard let dataUrl = URL(string: url) else {return}
     
     
