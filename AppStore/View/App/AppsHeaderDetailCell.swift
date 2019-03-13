@@ -13,12 +13,24 @@ class AppsHeaderDetailCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
-        image.backgroundColor = .red
-        
+
         contentLabel.numberOfLines = 2
         let stackView = VerticalStackView(arrangeView: [nameLabel,contentLabel,image], spacing: 12)
         addSubview(stackView)
         stackView.fillSuperview(padding: .init(top: 10, left: 0, bottom: 0, right: 0))
+    }
+    var socialGroup : SocialResult? {
+        
+        didSet{
+            
+            image.sd_setImage(with: URL(string: (socialGroup?.imageUrl)!), completed: nil)
+            nameLabel.text = socialGroup?.name
+            contentLabel.text = socialGroup?.tagline
+            
+            
+        }
+       
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

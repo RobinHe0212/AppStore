@@ -71,6 +71,42 @@ class Service {
         
     }
     
+    // fetch social header
+    func fetchSocialHeader(completion:@escaping ([SocialResult]?,Error?)->()){
+        
+        let url = "https://api.letsbuildthatapp.com/appstore/social"
+        
+        guard let urlString = URL(string: url) else {return}
+        URLSession.shared.dataTask(with: urlString) { (data, res, err) in
+            if err != nil {
+                print("cannot get url", err)
+                completion(nil,err)
+                return
+            }
+            guard let data = data else {return}
+            
+            do{
+                let result = try JSONDecoder().decode([SocialResult].self, from: data)
+                
+                completion(result,nil)
+                
+                
+                
+            }catch let jsonErr{
+                
+                print("cannot parse json",jsonErr)
+                completion(nil,jsonErr)
+            }
+            
+            
+            }.resume()
+        
+        
+        
+    }
+        
+    }
+    
     
     //helper
     func fetchGenreHelper(url: String,completion:@escaping (AppsResult?,Error?)->()){
@@ -104,4 +140,4 @@ class Service {
         
     }
     
-}
+

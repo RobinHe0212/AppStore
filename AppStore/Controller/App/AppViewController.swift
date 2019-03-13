@@ -19,6 +19,8 @@ class AppViewController: BaseViewController, UICollectionViewDelegateFlowLayout 
         collectionView.backgroundColor = .white
         collectionView.register(AppsCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.register(AppsHorizontalCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerCellId)
+       view.addSubview(activityIndicator)
+        activityIndicator.fillSuperview()
         fetchData()
         
     }
@@ -27,11 +29,39 @@ class AppViewController: BaseViewController, UICollectionViewDelegateFlowLayout 
     var group1 : AppsResult?
     var group2 : AppsResult?
     var group3 : AppsResult?
+    
+    var socialResult = [SocialResult]()
+    
+    let activityIndicator : UIActivityIndicatorView = {
+        
+        let activity = UIActivityIndicatorView(style: .whiteLarge)
+        activity.hidesWhenStopped = true
+        activity.color = .black
+        activity.startAnimating()
+        return activity
+    }()
 
     
+    
     fileprivate func fetchData(){
+        
+        
         // help u synchronize the data fetching together
         let dispatchGroup = DispatchGroup()
+        
+        dispatchGroup.enter()
+        Service.shared.fetchSocialHeader { (result, err) in
+            dispatchGroup.leave()
+            if err != nil {
+                print("error is ", err)
+                return
+            }
+            guard let result = result else {return}
+            self.socialResult = result
+        }
+        
+        
+        
         
         dispatchGroup.enter()
         Service.shared.fetchTopGrossing { (result, err) in
@@ -72,6 +102,7 @@ class AppViewController: BaseViewController, UICollectionViewDelegateFlowLayout 
         }
         
         dispatchGroup.notify(queue: .main) {
+            self.activityIndicator.stopAnimating()
            print( "done with all 3 fetch")
             if let group = self.group1 {
                 self.groupFetch.append(group)
@@ -97,7 +128,9 @@ class AppViewController: BaseViewController, UICollectionViewDelegateFlowLayout 
     }
 
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerCellId, for: indexPath)
+        let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerCellId, for: indexPath) as! AppsHorizontalCell
+        cell.appsHorizontalVC.socialGroup = socialResult
+        cell.appsHorizontalVC.collectionView.reloadData()
         return cell
     }
     

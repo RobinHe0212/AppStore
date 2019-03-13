@@ -27,6 +27,7 @@
 		0F5D3F7A2239553D00DD0C66 /* AppsHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F792239553D00DD0C66 /* AppsHorizontalController.swift */; };
 		0F5D3F7C22395A0400DD0C66 /* AppsHeaderDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F7B22395A0400DD0C66 /* AppsHeaderDetailCell.swift */; };
 		0F5D3F7E2239823F00DD0C66 /* AppsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F7D2239823F00DD0C66 /* AppsResult.swift */; };
+		0F5D3F802239A22D00DD0C66 /* SocialResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F7F2239A22D00DD0C66 /* SocialResult.swift */; };
 		5FCE8F3A9A407C331B55D40D /* Pods_AppStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A185EACDA1F0C84EB85D61AB /* Pods_AppStore.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		0F5D3F792239553D00DD0C66 /* AppsHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHorizontalController.swift; sourceTree = "<group>"; };
 		0F5D3F7B22395A0400DD0C66 /* AppsHeaderDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderDetailCell.swift; sourceTree = "<group>"; };
 		0F5D3F7D2239823F00DD0C66 /* AppsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsResult.swift; sourceTree = "<group>"; };
+		0F5D3F7F2239A22D00DD0C66 /* SocialResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialResult.swift; sourceTree = "<group>"; };
 		932228F3452BF7B395F7A249 /* Pods-AppStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppStore/Pods-AppStore.debug.xcconfig"; sourceTree = "<group>"; };
 		A185EACDA1F0C84EB85D61AB /* Pods_AppStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -148,6 +150,7 @@
 			children = (
 				0F5D3F642237066C00DD0C66 /* SearchResult.swift */,
 				0F5D3F7D2239823F00DD0C66 /* AppsResult.swift */,
+				0F5D3F7F2239A22D00DD0C66 /* SocialResult.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F5D3F5A2236E15500DD0C66 /* SearchViewController.swift in Sources */,
+				0F5D3F802239A22D00DD0C66 /* SocialResult.swift in Sources */,
 				0F5D3F682237142300DD0C66 /* Service.swift in Sources */,
 				0F5D3F652237066C00DD0C66 /* SearchResult.swift in Sources */,
 				0F5D3F622236F05D00DD0C66 /* VerticalStackView.swift in Sources */,

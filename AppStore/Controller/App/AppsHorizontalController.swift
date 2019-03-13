@@ -13,6 +13,8 @@ class AppsHorizontalController: BaseViewController, UICollectionViewDelegateFlow
 
     fileprivate let cellId = "cellId"
     
+    var socialGroup = [SocialResult]()
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = .white
@@ -23,12 +25,14 @@ class AppsHorizontalController: BaseViewController, UICollectionViewDelegateFlow
         
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsHeaderDetailCell
+        cell.socialGroup = socialGroup[indexPath.item]
+        
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return socialGroup.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -36,7 +40,7 @@ class AppsHorizontalController: BaseViewController, UICollectionViewDelegateFlow
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
     }
     
 }
