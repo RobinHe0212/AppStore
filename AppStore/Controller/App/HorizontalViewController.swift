@@ -43,7 +43,7 @@ class HorizontalViewController: BaseViewController, UICollectionViewDelegateFlow
    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: CGFloat(topPadding) , left: 16, bottom:CGFloat(bottomPadding), right: 16)
+        return UIEdgeInsets(top: topPadding , left: 16, bottom:bottomPadding, right: 16)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

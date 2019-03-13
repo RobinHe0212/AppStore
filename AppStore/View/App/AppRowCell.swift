@@ -28,8 +28,7 @@ extension UIImageView {
         self.clipsToBounds = true
         self.layer.cornerRadius = angle
         self.contentMode = .scaleAspectFill
-        self.constrainWidth(constant: 64)
-        self.constrainHeight(constant: 64)
+        
         
     }
     
@@ -55,6 +54,8 @@ class AppRowCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         let stackView = UIStackView(arrangedSubviews: [icon,VerticalStackView(arrangeView: [nameLabel,companyLabel]),addBtn])
+        icon.constrainHeight(constant: 64)
+        icon.constrainWidth(constant: 64)
         addSubview(stackView)
         stackView.fillSuperview()
         stackView.spacing = 10

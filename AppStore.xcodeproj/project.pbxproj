@@ -23,6 +23,9 @@
 		0F5D3F7022384F4A00DD0C66 /* AppsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F6F22384F4A00DD0C66 /* AppsCell.swift */; };
 		0F5D3F722238551800DD0C66 /* HorizontalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F712238551800DD0C66 /* HorizontalViewController.swift */; };
 		0F5D3F7622385D9D00DD0C66 /* AppRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F7522385D9D00DD0C66 /* AppRowCell.swift */; };
+		0F5D3F78223953E300DD0C66 /* AppsHorizontalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F77223953E300DD0C66 /* AppsHorizontalCell.swift */; };
+		0F5D3F7A2239553D00DD0C66 /* AppsHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F792239553D00DD0C66 /* AppsHorizontalController.swift */; };
+		0F5D3F7C22395A0400DD0C66 /* AppsHeaderDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F7B22395A0400DD0C66 /* AppsHeaderDetailCell.swift */; };
 		5FCE8F3A9A407C331B55D40D /* Pods_AppStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A185EACDA1F0C84EB85D61AB /* Pods_AppStore.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +49,9 @@
 		0F5D3F6F22384F4A00DD0C66 /* AppsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsCell.swift; sourceTree = "<group>"; };
 		0F5D3F712238551800DD0C66 /* HorizontalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalViewController.swift; sourceTree = "<group>"; };
 		0F5D3F7522385D9D00DD0C66 /* AppRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRowCell.swift; sourceTree = "<group>"; };
+		0F5D3F77223953E300DD0C66 /* AppsHorizontalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHorizontalCell.swift; sourceTree = "<group>"; };
+		0F5D3F792239553D00DD0C66 /* AppsHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHorizontalController.swift; sourceTree = "<group>"; };
+		0F5D3F7B22395A0400DD0C66 /* AppsHeaderDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderDetailCell.swift; sourceTree = "<group>"; };
 		932228F3452BF7B395F7A249 /* Pods-AppStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppStore/Pods-AppStore.debug.xcconfig"; sourceTree = "<group>"; };
 		A185EACDA1F0C84EB85D61AB /* Pods_AppStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -164,6 +170,7 @@
 			children = (
 				0F5D3F6B22384BC500DD0C66 /* AppViewController.swift */,
 				0F5D3F712238551800DD0C66 /* HorizontalViewController.swift */,
+				0F5D3F792239553D00DD0C66 /* AppsHorizontalController.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -173,6 +180,8 @@
 			children = (
 				0F5D3F6F22384F4A00DD0C66 /* AppsCell.swift */,
 				0F5D3F7522385D9D00DD0C66 /* AppRowCell.swift */,
+				0F5D3F77223953E300DD0C66 /* AppsHorizontalCell.swift */,
+				0F5D3F7B22395A0400DD0C66 /* AppsHeaderDetailCell.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -318,6 +327,9 @@
 				0F5D3F652237066C00DD0C66 /* SearchResult.swift in Sources */,
 				0F5D3F622236F05D00DD0C66 /* VerticalStackView.swift in Sources */,
 				0F5D3F492236D94A00DD0C66 /* TabBarNavController.swift in Sources */,
+				0F5D3F7C22395A0400DD0C66 /* AppsHeaderDetailCell.swift in Sources */,
+				0F5D3F7A2239553D00DD0C66 /* AppsHorizontalController.swift in Sources */,
+				0F5D3F78223953E300DD0C66 /* AppsHorizontalCell.swift in Sources */,
 				0F5D3F6E22384D0D00DD0C66 /* BaseViewController.swift in Sources */,
 				0F5D3F5D2236E47600DD0C66 /* SearchResultCell.swift in Sources */,
 				0F5D3F6C22384BC500DD0C66 /* AppViewController.swift in Sources */,
