@@ -47,4 +47,35 @@ class Service {
     }
     
     
+    func fetchGenre(completion:@escaping (AppsResult?,Error?)->()){
+    
+    let url = "https://rss.itunes.apple.com/api/v1/us/ios-apps/top-grossing/all/50/explicit.json"
+    guard let urlString = URL(string: url) else {return}
+    URLSession.shared.dataTask(with: urlString) { (data, res, err) in
+        if err != nil {
+            print("cannot get url", err)
+            completion(nil,err)
+            return
+        }
+        guard let data = data else {return}
+        
+        do{
+            let result = try JSONDecoder().decode(AppsResult.self, from: data)
+            
+            completion(result,nil)
+
+         
+            
+        }catch let jsonErr{
+            
+            print("cannot parse json",jsonErr)
+            completion(nil,jsonErr)
+        }
+        
+        
+    }.resume()
+    
+    
+    }
+    
 }

@@ -51,6 +51,20 @@ extension UIButton {
 
 class AppRowCell: UICollectionViewCell {
     
+    
+    var appRowResult : AppContent?{
+        
+        didSet{
+            
+            icon.sd_setImage(with: URL(string: appRowResult?.artworkUrl100 ?? "") , completed: nil)
+            nameLabel.text = appRowResult?.name ?? ""
+            companyLabel.text = appRowResult?.artistName ?? ""
+            
+        }
+        
+        
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         let stackView = UIStackView(arrangedSubviews: [icon,VerticalStackView(arrangeView: [nameLabel,companyLabel]),addBtn])

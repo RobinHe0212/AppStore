@@ -26,6 +26,7 @@
 		0F5D3F78223953E300DD0C66 /* AppsHorizontalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F77223953E300DD0C66 /* AppsHorizontalCell.swift */; };
 		0F5D3F7A2239553D00DD0C66 /* AppsHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F792239553D00DD0C66 /* AppsHorizontalController.swift */; };
 		0F5D3F7C22395A0400DD0C66 /* AppsHeaderDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F7B22395A0400DD0C66 /* AppsHeaderDetailCell.swift */; };
+		0F5D3F7E2239823F00DD0C66 /* AppsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F7D2239823F00DD0C66 /* AppsResult.swift */; };
 		5FCE8F3A9A407C331B55D40D /* Pods_AppStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A185EACDA1F0C84EB85D61AB /* Pods_AppStore.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		0F5D3F77223953E300DD0C66 /* AppsHorizontalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHorizontalCell.swift; sourceTree = "<group>"; };
 		0F5D3F792239553D00DD0C66 /* AppsHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHorizontalController.swift; sourceTree = "<group>"; };
 		0F5D3F7B22395A0400DD0C66 /* AppsHeaderDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHeaderDetailCell.swift; sourceTree = "<group>"; };
+		0F5D3F7D2239823F00DD0C66 /* AppsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsResult.swift; sourceTree = "<group>"; };
 		932228F3452BF7B395F7A249 /* Pods-AppStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppStore/Pods-AppStore.debug.xcconfig"; sourceTree = "<group>"; };
 		A185EACDA1F0C84EB85D61AB /* Pods_AppStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				0F5D3F642237066C00DD0C66 /* SearchResult.swift */,
+				0F5D3F7D2239823F00DD0C66 /* AppsResult.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				0F5D3F5D2236E47600DD0C66 /* SearchResultCell.swift in Sources */,
 				0F5D3F6C22384BC500DD0C66 /* AppViewController.swift in Sources */,
 				0F5D3F7022384F4A00DD0C66 /* AppsCell.swift in Sources */,
+				0F5D3F7E2239823F00DD0C66 /* AppsResult.swift in Sources */,
 				0F5D3F472236D94A00DD0C66 /* AppDelegate.swift in Sources */,
 				0F5D3F7622385D9D00DD0C66 /* AppRowCell.swift in Sources */,
 				0F5D3F722238551800DD0C66 /* HorizontalViewController.swift in Sources */,

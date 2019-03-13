@@ -19,6 +19,29 @@ class AppViewController: BaseViewController, UICollectionViewDelegateFlowLayout 
         collectionView.backgroundColor = .white
         collectionView.register(AppsCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.register(AppsHorizontalCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerCellId)
+        fetchData()
+        
+    }
+    
+    var appGenreResult : AppsResult?
+    
+    fileprivate func fetchData(){
+        
+        Service.shared.fetchGenre { (result, err) in
+            if err != nil {
+                print("error is ", err)
+                return
+            }
+            guard let result = result else {return}
+            self.appGenreResult = result
+            
+            
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+            
+        }
+        
         
         
     }
@@ -33,7 +56,8 @@ class AppViewController: BaseViewController, UICollectionViewDelegateFlowLayout 
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsCell
+        cell.appResult = appGenreResult
         
         return cell
     }

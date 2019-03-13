@@ -16,6 +16,8 @@ class HorizontalViewController: BaseViewController, UICollectionViewDelegateFlow
     fileprivate let bottomPadding : CGFloat = 12
     fileprivate let lineSpacing : CGFloat = 15
     
+    var appGroup : AppsResult?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(AppRowCell.self, forCellWithReuseIdentifier: cellId)
@@ -26,7 +28,9 @@ class HorizontalViewController: BaseViewController, UICollectionViewDelegateFlow
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppRowCell
+        cell.appRowResult = appGroup?.feed.results[indexPath.item]
+        
         return cell
     }
     
@@ -47,6 +51,6 @@ class HorizontalViewController: BaseViewController, UICollectionViewDelegateFlow
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 12
+        return appGroup?.feed.results.count ?? 0
     }
 }

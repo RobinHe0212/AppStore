@@ -13,6 +13,18 @@ import UIKit
 
 class AppsCell: UICollectionViewCell {
     
+    
+    var appResult : AppsResult? {
+        
+        didSet{
+            appSection.text = appResult?.feed.title ?? ""
+            horizontalController.appGroup = appResult
+            horizontalController.collectionView.reloadData()
+        }
+        
+    }
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
