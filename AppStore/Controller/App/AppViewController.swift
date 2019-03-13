@@ -23,22 +23,72 @@ class AppViewController: BaseViewController, UICollectionViewDelegateFlowLayout 
         
     }
     
-    var appGenreResult : AppsResult?
+    var groupFetch = [AppsResult]()
+    var group1 : AppsResult?
+    var group2 : AppsResult?
+    var group3 : AppsResult?
+
     
     fileprivate func fetchData(){
+        // help u synchronize the data fetching together
+        let dispatchGroup = DispatchGroup()
         
-        Service.shared.fetchGenre { (result, err) in
+        dispatchGroup.enter()
+        Service.shared.fetchTopGrossing { (result, err) in
+            
+            dispatchGroup.leave()
             if err != nil {
                 print("error is ", err)
                 return
             }
-            guard let result = result else {return}
-            self.appGenreResult = result
             
+            self.group1 = result
             
+        }
+       
+        dispatchGroup.enter()
+        Service.shared.fetchTopFree { (result, err) in
+            
+            dispatchGroup.leave()
+            if err != nil {
+                print("error is ", err)
+                return
+            }
+            
+            self.group2 = result
+            
+        }
+        
+        dispatchGroup.enter()
+        Service.shared.fetchNewGames { (result, err) in
+            
+            dispatchGroup.leave()
+            if err != nil {
+                print("error is ", err)
+                return
+            }
+            
+            self.group3 = result
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+           print( "done with all 3 fetch")
+            if let group = self.group1 {
+                self.groupFetch.append(group)
+
+            }
+            if let group = self.group2 {
+                self.groupFetch.append(group)
+                
+            }
+            if let group = self.group3 {
+                self.groupFetch.append(group)
+                
+            }
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
+         
             
         }
         
@@ -57,13 +107,13 @@ class AppViewController: BaseViewController, UICollectionViewDelegateFlowLayout 
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsCell
-        cell.appResult = appGenreResult
+        cell.appResult = groupFetch[indexPath.item]
         
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 12
+        return groupFetch.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
