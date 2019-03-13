@@ -62,7 +62,7 @@ class SearchViewController: BaseViewController, UICollectionViewDelegateFlowLayo
                 if err != nil {
                     fatalError()
                 }
-                self.result = res
+                self.result = res?.results ?? []
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }
