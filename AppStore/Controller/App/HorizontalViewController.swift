@@ -9,7 +9,7 @@
 import UIKit
 
 
-class HorizontalViewController: BaseViewController, UICollectionViewDelegateFlowLayout {
+class HorizontalViewController: BetterSnapCollectionViewController, UICollectionViewDelegateFlowLayout {
 
     fileprivate let cellId = "cellId"
     fileprivate let topPadding : CGFloat = 12
@@ -22,9 +22,7 @@ class HorizontalViewController: BaseViewController, UICollectionViewDelegateFlow
         super.viewDidLoad()
         collectionView.register(AppRowCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.backgroundColor = .white
-        if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.scrollDirection = .horizontal
-        }
+       collectionView.contentInset = UIEdgeInsets(top: topPadding, left: 16, bottom: bottomPadding, right: 16)
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -46,9 +44,7 @@ class HorizontalViewController: BaseViewController, UICollectionViewDelegateFlow
     
    
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: topPadding , left: 16, bottom:bottomPadding, right: 16)
-    }
+   
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return appGroup?.feed.results.count ?? 0
