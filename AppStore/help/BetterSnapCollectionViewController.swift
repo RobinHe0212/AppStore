@@ -34,7 +34,7 @@ class SnapCollectionViewLayOut : UICollectionViewFlowLayout {
         
         var offsetAdjustment = CGFloat.greatestFiniteMagnitude
         
-        // because u need to calculate the offset according to the collectionView.contenInset, therefor u need to set collectionView.contentInset in view did load instead of insetForSectionat collectionview function,which has the same function to set distance between margain and contentView
+        // because u need to calculate the offset according to the collectionView.contenInset, therefor u need to set collectionView.contentInset in view did load instead of insetForSectionat collectionview function,which has the same function to set distance between scroll View edge and contentView (safe area)
         
         let horizontalOffset = proposedContentOffset.x + collectionView.contentInset.left
         

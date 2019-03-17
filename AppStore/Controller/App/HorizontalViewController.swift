@@ -18,6 +18,9 @@ class HorizontalViewController: BetterSnapCollectionViewController, UICollection
     
     var appGroup : AppsResult?
     
+    var getNameForApp : ((AppContent)->())?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(AppRowCell.self, forCellWithReuseIdentifier: cellId)
@@ -25,9 +28,24 @@ class HorizontalViewController: BetterSnapCollectionViewController, UICollection
        collectionView.contentInset = UIEdgeInsets(top: topPadding, left: 16, bottom: bottomPadding, right: 16)
     }
     
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if let result = appGroup?.feed.results[indexPath.item] {
+            
+            getNameForApp?(result)
+            
+
+        }
+        
+       
+        
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppRowCell
         cell.appRowResult = appGroup?.feed.results[indexPath.item]
+        
         
         return cell
     }

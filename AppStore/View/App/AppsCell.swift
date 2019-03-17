@@ -20,6 +20,7 @@ class AppsCell: UICollectionViewCell {
             appSection.text = appResult?.feed.title ?? ""
             horizontalController.appGroup = appResult
             horizontalController.collectionView.reloadData()
+          
         }
         
     }

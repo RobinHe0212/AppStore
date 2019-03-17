@@ -141,6 +141,15 @@ class AppViewController: BaseViewController, UICollectionViewDelegateFlowLayout 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! AppsCell
         cell.appResult = groupFetch[indexPath.item]
+        cell.horizontalController.getNameForApp = {
+            [weak self]   result  in
+            let detailVC = SpecificAppDetailViewController()
+            detailVC.appid = result.id
+            detailVC.navigationItem.title = result.name
+ 
+            self?.navigationController?.pushViewController(detailVC, animated: true)
+        }
+        
         
         return cell
     }

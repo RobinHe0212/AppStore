@@ -21,6 +21,7 @@ struct Content : Decodable {
 
 struct AppContent : Decodable {
     
+    let id : String
     let artistName : String
     let artworkUrl100 : String
     let name : String

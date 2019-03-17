@@ -23,6 +23,9 @@ class Service {
     
     }
     
+    
+    
+    
     // Top Grossing games
     func fetchTopGrossing(completion:@escaping (AppsResult?,Error?)->()){
     
@@ -100,4 +103,11 @@ func fetchGeneric<T:Decodable>(url: String,completion:@escaping(T?,Error?)->()){
         fetchGeneric(url: url, completion: completion)
 
 }
+    
+    //appdetailhelper
+    func fetchDetailedGenreHelper(url: String,completion:@escaping (DetailedAppResult?,Error?)->()){
+        
+        fetchGeneric(url: url, completion: completion)
+        
+    }
 }

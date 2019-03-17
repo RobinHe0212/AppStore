@@ -8,46 +8,7 @@
 
 import UIKit
 
-extension UILabel {
-    
-    convenience init(text:String,font:CGFloat){
-        self.init(frame: .zero)
-        self.text = text
-        self.font = UIFont.boldSystemFont(ofSize: font)
-       
-    }
-    
-    
-}
 
-extension UIImageView {
-    
-    convenience init(image:String,angle:CGFloat){
-        self.init(image: nil)
-        self.backgroundColor = .purple
-        self.clipsToBounds = true
-        self.layer.cornerRadius = angle
-        self.contentMode = .scaleAspectFill
-        
-        
-    }
-    
-}
-
-extension UIButton {
-    
-    convenience init(name:String){
-        self.init(type: .system)
-        self.setTitle(name, for: .normal)
-        self.backgroundColor = UIColor(white: 0.8, alpha: 0.5)
-        self.setTitleColor(UIColor.blue, for: .normal)
-        self.constrainWidth(constant: 82)
-        self.constrainHeight(constant: 32)
-        self.clipsToBounds = true
-        self.layer.cornerRadius = 12
-    }
-    
-}
 
 class AppRowCell: UICollectionViewCell {
     
@@ -59,6 +20,7 @@ class AppRowCell: UICollectionViewCell {
             icon.sd_setImage(with: URL(string: appRowResult?.artworkUrl100 ?? "") , completed: nil)
             nameLabel.text = appRowResult?.name ?? ""
             companyLabel.text = appRowResult?.artistName ?? ""
+            
             
         }
         
