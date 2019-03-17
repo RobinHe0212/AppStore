@@ -34,6 +34,8 @@
 		0F5D3F8A223EDB1B00DD0C66 /* SpecificAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F89223EDB1B00DD0C66 /* SpecificAppCell.swift */; };
 		0F5D3F8D223EDE6000DD0C66 /* ExtensionHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F8C223EDE6000DD0C66 /* ExtensionHelp.swift */; };
 		0F5D3F8F223EEC8000DD0C66 /* DetailedAppResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F8E223EEC8000DD0C66 /* DetailedAppResult.swift */; };
+		0F5D3F93223EF90900DD0C66 /* ScreenshotCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F92223EF90900DD0C66 /* ScreenshotCollectionVC.swift */; };
+		0F5D3F95223F08B700DD0C66 /* ScreenShotAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F94223F08B700DD0C66 /* ScreenShotAppCell.swift */; };
 		5FCE8F3A9A407C331B55D40D /* Pods_AppStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A185EACDA1F0C84EB85D61AB /* Pods_AppStore.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +70,8 @@
 		0F5D3F89223EDB1B00DD0C66 /* SpecificAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificAppCell.swift; sourceTree = "<group>"; };
 		0F5D3F8C223EDE6000DD0C66 /* ExtensionHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionHelp.swift; sourceTree = "<group>"; };
 		0F5D3F8E223EEC8000DD0C66 /* DetailedAppResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedAppResult.swift; sourceTree = "<group>"; };
+		0F5D3F92223EF90900DD0C66 /* ScreenshotCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotCollectionVC.swift; sourceTree = "<group>"; };
+		0F5D3F94223F08B700DD0C66 /* ScreenShotAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShotAppCell.swift; sourceTree = "<group>"; };
 		932228F3452BF7B395F7A249 /* Pods-AppStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppStore/Pods-AppStore.debug.xcconfig"; sourceTree = "<group>"; };
 		A185EACDA1F0C84EB85D61AB /* Pods_AppStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -222,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				0F5D3F86223EDA7E00DD0C66 /* SpecificAppDetailViewController.swift */,
+				0F5D3F92223EF90900DD0C66 /* ScreenshotCollectionVC.swift */,
 			);
 			path = AppDetail;
 			sourceTree = "<group>";
@@ -230,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				0F5D3F89223EDB1B00DD0C66 /* SpecificAppCell.swift */,
+				0F5D3F94223F08B700DD0C66 /* ScreenShotAppCell.swift */,
 			);
 			path = AppDetail;
 			sourceTree = "<group>";
@@ -370,6 +376,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F5D3F95223F08B700DD0C66 /* ScreenShotAppCell.swift in Sources */,
 				0F5D3F5A2236E15500DD0C66 /* SearchViewController.swift in Sources */,
 				0F5D3F802239A22D00DD0C66 /* SocialResult.swift in Sources */,
 				0F5D3F8D223EDE6000DD0C66 /* ExtensionHelp.swift in Sources */,
@@ -387,6 +394,7 @@
 				0F5D3F8F223EEC8000DD0C66 /* DetailedAppResult.swift in Sources */,
 				0F5D3F6C22384BC500DD0C66 /* AppViewController.swift in Sources */,
 				0F5D3F7022384F4A00DD0C66 /* AppsCell.swift in Sources */,
+				0F5D3F93223EF90900DD0C66 /* ScreenshotCollectionVC.swift in Sources */,
 				0F5D3F82223AB17400DD0C66 /* BetterSnapCollectionViewController.swift in Sources */,
 				0F5D3F7E2239823F00DD0C66 /* AppsResult.swift in Sources */,
 				0F5D3F472236D94A00DD0C66 /* AppDelegate.swift in Sources */,

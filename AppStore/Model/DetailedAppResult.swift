@@ -17,5 +17,9 @@ struct DetailedResult : Decodable {
     let trackName : String
     let artworkUrl60 : String //icon
     let releaseNotes : String
+    let screenshotUrls : [String]
     
 }
+
+
+

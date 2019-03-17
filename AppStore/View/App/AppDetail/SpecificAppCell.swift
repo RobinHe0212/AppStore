@@ -39,10 +39,13 @@ class SpecificAppCell: UICollectionViewCell {
                 iconImage,
                 VerticalStackView(arrangeView: [
                     title,
-                    buyBtn
+                    UIStackView(arrangedSubviews: [
+                         buyBtn,
+                         UIView()
+                        ])
+                   
                     
-                    ], spacing: 12),
-                UIView()
+                    ], spacing: 12)
                 
                 ],customedSpacing:12),
             newTitle,
