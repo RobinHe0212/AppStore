@@ -16,6 +16,7 @@ class AppViewController: BaseViewController, UICollectionViewDelegateFlowLayout 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         collectionView.backgroundColor = .white
         collectionView.register(AppsCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.register(AppsHorizontalCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerCellId)

@@ -43,8 +43,7 @@ class SpecificAppCell: UICollectionViewCell {
                          buyBtn,
                          UIView()
                         ])
-                   
-                    
+   
                     ], spacing: 12)
                 
                 ],customedSpacing:12),

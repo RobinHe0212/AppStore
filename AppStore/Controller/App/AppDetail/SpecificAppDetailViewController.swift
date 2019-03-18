@@ -13,17 +13,19 @@ class SpecificAppDetailViewController: BaseViewController, UICollectionViewDeleg
 
     let specificCellId = "specificCellId"
     let previewCellId = "previewCellId"
+    let screenShotCellId = "screenShotCellId"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = .white
         navigationController?.navigationBar.prefersLargeTitles = false
         collectionView.register(SpecificAppCell.self, forCellWithReuseIdentifier: specificCellId)
-        collectionView.register(ScreenShotAppCell.self, forCellWithReuseIdentifier: previewCellId)
-       // collectionView.register(<#T##cellClass: AnyClass?##AnyClass?#>, forCellWithReuseIdentifier: <#T##String#>)
+        collectionView.register(ScreenShotAppCell.self, forCellWithReuseIdentifier: screenShotCellId)
+        collectionView.register(ReviewAppCell.self, forCellWithReuseIdentifier: previewCellId)
         
     }
     var detailedResult : DetailedResult?
+    var review : [ReviewDetail]?
     var appid : String? {
         
         didSet{
@@ -42,7 +44,23 @@ class SpecificAppDetailViewController: BaseViewController, UICollectionViewDeleg
                 }
                 
             }
-          
+          let reviewUrl = "https://itunes.apple.com/rss/customerreviews/page=1/id=\(appid ?? "")/sortby=mostrecent/json?l=en&cc=us"
+            Service.shared.fetchGeneric(url: reviewUrl) { (result:ReviewResult?, err) in
+                if err != nil {
+                    print("error is",err)
+                    return
+                }
+                guard let result = result else {return}
+                print(result.feed.entry)
+                self.review = result.feed.entry
+                DispatchQueue.main.async {
+                    
+                    self.collectionView.reloadData()
+                }
+                
+                
+                
+            }
             
         }
         
@@ -55,19 +73,27 @@ class SpecificAppDetailViewController: BaseViewController, UICollectionViewDeleg
             cell.appResult = detailedResult
             return cell
             
-        }else  {
+        }else if indexPath.item == 1 {
             
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: previewCellId, for: indexPath) as! ScreenShotAppCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: screenShotCellId, for: indexPath) as! ScreenShotAppCell
             cell.screenshot.appResult = detailedResult
             
             return cell
+        }else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: previewCellId, for: indexPath) as! ReviewAppCell
+            if let review = self.review {
+                cell.reviewCV.reviewDetail = review
+            }
+            
+            return cell
+            
         }
        
        
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -82,9 +108,11 @@ class SpecificAppDetailViewController: BaseViewController, UICollectionViewDeleg
             
             return .init(width: self.view.frame.width, height: estimatedCellHeight.height)
             
-        }else {
+        }else if indexPath.item == 1{
             
             return .init(width: self.view.frame.width, height: 500)
+        }else {
+            return .init(width: self.view.frame.width, height: 250)
         }
         
         
