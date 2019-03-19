@@ -25,7 +25,7 @@ class TabBarNavController: UITabBarController {
 
     fileprivate func setUpTabController(title:String,vc:UIViewController,image:String) -> UIViewController{
         
-    
+        
         let navController = UINavigationController(rootViewController: vc)
         vc.tabBarItem.title = title
         vc.tabBarItem.image = UIImage(named: image)

@@ -47,6 +47,6 @@ class ReviewCollectionViewController: BetterSnapCollectionViewController, UIColl
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: self.view.frame.width, height: self.view.frame.height)
+        return .init(width: self.view.frame.width-32, height: self.view.frame.height)
     }
 }
