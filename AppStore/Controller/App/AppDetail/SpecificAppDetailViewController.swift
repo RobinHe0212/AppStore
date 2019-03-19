@@ -15,6 +15,20 @@ class SpecificAppDetailViewController: BaseViewController, UICollectionViewDeleg
     let previewCellId = "previewCellId"
     let screenShotCellId = "screenShotCellId"
     
+    fileprivate let appid : String
+    
+    init(appId:Int){
+        
+        self.appid = String(appId)
+        super.init()
+       
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = .white
@@ -22,49 +36,48 @@ class SpecificAppDetailViewController: BaseViewController, UICollectionViewDeleg
         collectionView.register(SpecificAppCell.self, forCellWithReuseIdentifier: specificCellId)
         collectionView.register(ScreenShotAppCell.self, forCellWithReuseIdentifier: screenShotCellId)
         collectionView.register(ReviewAppCell.self, forCellWithReuseIdentifier: previewCellId)
+        fetchData()
         
     }
-    var detailedResult : DetailedResult?
-    var review : [ReviewDetail]?
-    var appid : String? {
-        
-        didSet{
-            let urlString = "https://itunes.apple.com/lookup?id=\(appid ?? "")"
-            print(urlString)
-            Service.shared.fetchDetailedGenreHelper(url: urlString) { (result, err) in
-                if err != nil {
-                    print(err)
-                    return
-                }
-                self.detailedResult = result?.results.first
-                
-                DispatchQueue.main.async {
-                   
-                    self.collectionView.reloadData()
-                }
-                
+    
+    func fetchData(){
+        let urlString = "https://itunes.apple.com/lookup?id=\(appid ?? "")"
+        Service.shared.fetchDetailedGenreHelper(url: urlString) { (result, err) in
+            if err != nil {
+                print(err)
+                return
             }
-          let reviewUrl = "https://itunes.apple.com/rss/customerreviews/page=1/id=\(appid ?? "")/sortby=mostrecent/json?l=en&cc=us"
-            Service.shared.fetchGeneric(url: reviewUrl) { (result:ReviewResult?, err) in
-                if err != nil {
-                    print("error is",err)
-                    return
-                }
-                guard let result = result else {return}
-                print(result.feed.entry)
-                self.review = result.feed.entry
-                DispatchQueue.main.async {
-                    
-                    self.collectionView.reloadData()
-                }
+            self.detailedResult = result?.results.first
+            
+            DispatchQueue.main.async {
                 
-                
-                
+                self.collectionView.reloadData()
             }
+            
+        }
+        let reviewUrl = "https://itunes.apple.com/rss/customerreviews/page=1/id=\(appid ?? "")/sortby=mostrecent/json?l=en&cc=us"
+        Service.shared.fetchGeneric(url: reviewUrl) { (result:ReviewResult?, err) in
+            if err != nil {
+                print("error is",err)
+                return
+            }
+            guard let result = result else {return}
+            print(result.feed.entry)
+            self.review = result.feed.entry
+            DispatchQueue.main.async {
+                
+                self.collectionView.reloadData()
+            }
+            
+            
             
         }
         
     }
+    
+    var detailedResult : DetailedResult?
+    var review : [ReviewDetail]?
+    
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         

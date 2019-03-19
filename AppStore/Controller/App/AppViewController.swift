@@ -128,6 +128,8 @@ class AppViewController: BaseViewController, UICollectionViewDelegateFlowLayout 
         
     }
 
+    
+    
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerCellId, for: indexPath) as! AppsHorizontalCell
         cell.appsHorizontalVC.socialGroup = socialResult
@@ -144,8 +146,8 @@ class AppViewController: BaseViewController, UICollectionViewDelegateFlowLayout 
         cell.appResult = groupFetch[indexPath.item]
         cell.horizontalController.getNameForApp = {
             [weak self]   result  in
-            let detailVC = SpecificAppDetailViewController()
-            detailVC.appid = result.id
+            let detailVC = SpecificAppDetailViewController(appId: Int(result.id)!)
+            
             detailVC.navigationItem.title = result.name
  
             self?.navigationController?.pushViewController(detailVC, animated: true)

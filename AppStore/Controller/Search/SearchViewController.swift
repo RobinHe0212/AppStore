@@ -60,6 +60,7 @@ class SearchViewController: BaseViewController, UICollectionViewDelegateFlowLayo
             
             Service.shared.fetchApp(search: searchText) { (res, err) in
                 if err != nil {
+                    print("error", err)
                     fatalError()
                 }
                 self.result = res?.results ?? []
@@ -77,7 +78,12 @@ class SearchViewController: BaseViewController, UICollectionViewDelegateFlowLayo
     
     var result = [Result]()
     
-
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+       
+        let appId = result[indexPath.item].trackId
+        let appVC = SpecificAppDetailViewController(appId: appId)
+        navigationController?.pushViewController(appVC, animated: true)
+    }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! SearchResultCell
