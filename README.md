@@ -7,5 +7,10 @@ apps, use TabBar to seperate those.
 ![App page](https://github.com/RobinHe0212/AppStore/blob/master/AppStore/Assets.xcassets/2.jpeg)
 ![App Detail](https://github.com/RobinHe0212/AppStore/blob/master/AppStore/Assets.xcassets/3.jpeg)
 ![App Detail](https://github.com/RobinHe0212/AppStore/blob/master/AppStore/Assets.xcassets/4.jpeg)
+![Preview section](https://github.com/RobinHe0212/AppStore/blob/master/AppStore/Assets.xcassets/7.jpeg)
+![Preview section](https://github.com/RobinHe0212/AppStore/blob/master/AppStore/Assets.xcassets/8.jpeg)
 ![Search](https://github.com/RobinHe0212/AppStore/blob/master/AppStore/Assets.xcassets/5.jpeg)
 ![Search Result](https://github.com/RobinHe0212/AppStore/blob/master/AppStore/Assets.xcassets/6.jpeg)
+
+
+
