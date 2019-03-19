@@ -3,15 +3,13 @@ No storyboard!Use itune api to grab the instant data from appstore and mock a la
 apps, use TabBar to seperate those. 
 
 # ScreenShot
-![App page](https://github.com/RobinHe0212/AppStore/blob/master/AppStore/Assets.xcassets/1.jpeg)
-![App page](https://github.com/RobinHe0212/AppStore/blob/master/AppStore/Assets.xcassets/2.jpeg)
-![App Detail](https://github.com/RobinHe0212/AppStore/blob/master/AppStore/Assets.xcassets/3.jpeg)
-![App Detail](https://github.com/RobinHe0212/AppStore/blob/master/AppStore/Assets.xcassets/4.jpeg)
-![Preview section](https://github.com/RobinHe0212/AppStore/blob/master/AppStore/Assets.xcassets/7.jpeg)
-![Preview section](https://github.com/RobinHe0212/AppStore/blob/master/AppStore/Assets.xcassets/8.jpeg)
-![Search](https://github.com/RobinHe0212/AppStore/blob/master/AppStore/Assets.xcassets/5.jpeg)
-![Search Result](https://github.com/RobinHe0212/AppStore/blob/master/AppStore/Assets.xcassets/6.jpeg)
-![Search Result](https://github.com/RobinHe0212/AppStore/blob/master/AppStore/Assets.xcassets/9.jpeg)
-
-
+![App page]<img src="https://github.com/RobinHe0212/AppStore/blob/master/AppStore/Assets.xcassets/1.jpeg" height="768" width="384">
+![App page]<img src="https://github.com/RobinHe0212/AppStore/blob/master/AppStore/Assets.xcassets/2.jpeg" height="768" width="384">
+![App Detail]<img src="https://github.com/RobinHe0212/AppStore/blob/master/AppStore/Assets.xcassets/3.jpeg" height="768" width="384">
+![App Detail]<img src="https://github.com/RobinHe0212/AppStore/blob/master/AppStore/Assets.xcassets/4.jpeg" height="768" width="384">
+![Preview section]<img src="https://github.com/RobinHe0212/AppStore/blob/master/AppStore/Assets.xcassets/7.jpeg" height="768" width="384">
+![Preview section]<img src="https://github.com/RobinHe0212/AppStore/blob/master/AppStore/Assets.xcassets/8.jpeg" height="768" width="384">
+![Search]<img src="https://github.com/RobinHe0212/AppStore/blob/master/AppStore/Assets.xcassets/5.jpeg" height="768" width="384">
+![Search Result]<img src="https://github.com/RobinHe0212/AppStore/blob/master/AppStore/Assets.xcassets/6.jpeg" height="768" width="384">
+![Search Result]<img src="https://github.com/RobinHe0212/AppStore/blob/master/AppStore/Assets.xcassets/9.jpeg" height="768" width="384">
 
