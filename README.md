@@ -11,6 +11,7 @@ apps, use TabBar to seperate those.
 ![Preview section](https://github.com/RobinHe0212/AppStore/blob/master/AppStore/Assets.xcassets/8.jpeg)
 ![Search](https://github.com/RobinHe0212/AppStore/blob/master/AppStore/Assets.xcassets/5.jpeg)
 ![Search Result](https://github.com/RobinHe0212/AppStore/blob/master/AppStore/Assets.xcassets/6.jpeg)
+![Search Result](https://github.com/RobinHe0212/AppStore/blob/master/AppStore/Assets.xcassets/9.jpeg)
 
 
 
