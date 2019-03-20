@@ -38,7 +38,7 @@ extension UIImageView {
         self.clipsToBounds = true
         self.layer.cornerRadius = angle
         self.contentMode = .scaleAspectFill
-        
+        self.image = UIImage(named: image)
         
     }
     

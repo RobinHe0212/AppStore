@@ -18,10 +18,9 @@ class SpecificAppDetailViewController: BaseViewController, UICollectionViewDeleg
     fileprivate let appid : String
     
     init(appId:Int){
-        
+
         self.appid = String(appId)
-        super.init()
-       
+       super.init()
         
     }
     

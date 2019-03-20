@@ -15,9 +15,10 @@ class TabBarNavController: UITabBarController {
         view.backgroundColor = .white
         
         viewControllers = [
+            setUpTabController(title: "Today", vc: TodayViewController(), image: "today_icon"),
             setUpTabController(title: "App", vc: AppViewController(), image: "apps"),
-            setUpTabController(title: "Search", vc: SearchViewController(), image: "search"),
-            setUpTabController(title: "Today", vc: UIViewController(), image: "today_icon")
+            setUpTabController(title: "Search", vc: SearchViewController(), image: "search")
+            
             
         ]
         
