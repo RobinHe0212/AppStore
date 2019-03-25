@@ -13,6 +13,15 @@ class TodayViewController: BaseViewController, UICollectionViewDelegateFlowLayou
 
     let cellId = "cellId"
     
+    let todayList  = [
+        TodayModel.init(title: "LIFE HACK", subTitle: "Utilizing your Time", image: UIImage(named:"garden")!, desc: "All the tools and apps you need to intelligently organize your life the right way", bgc: UIColor.white),
+        TodayModel.init(title: "HOLIDAYS", subTitle: "Travel on a Budget", image: UIImage(named:"holiday")!, desc: "Find out all you need ti know on how to travel without packing everything", bgc: #colorLiteral(red: 0.9843137255, green: 0.9607843137, blue: 0.7529411765, alpha: 1))
+        
+       
+    
+    ]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
@@ -33,34 +42,40 @@ class TodayViewController: BaseViewController, UICollectionViewDelegateFlowLayou
         let cv = TodayTableView()
         
         self.appFullController = cv
-       self.addChild(appFullController)
-        view.addSubview(appFullController.view)
-        
+        self.appFullController.result = todayList[indexPath.item]
+       
         appFullController.dismissHeader = {
             
             self.dismissPopUpView()
             
         }
+        self.addChild(appFullController)
+        view.addSubview(appFullController.view)
+        
+        // avoid glitch because of not 100% refreshing cell
+        collectionView.isUserInteractionEnabled = false
+        
         let cell = collectionView.cellForItem(at: indexPath) // frame based on superview
         print(cell?.frame)
         print(cell?.bounds)
         guard let startingframe = cell?.superview?.convert((cell?.frame)!, to: nil) else {return} // base on window
         print("starting frame is \(startingframe)")
-        cv.view.frame = startingframe
+        appFullController.view.frame = startingframe
         startFrame = startingframe
         
         // use auto constraints to fix the moving-up effect glitch
 
-        cv.view.translatesAutoresizingMaskIntoConstraints = false
-        self.topConstraint = cv.view.topAnchor.constraint(equalTo: self.view.topAnchor, constant: startingframe.origin.y)
-        self.leftConstraint = cv.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: startingframe.origin.x)
-        self.widthConstraint =  cv.view.widthAnchor.constraint(equalToConstant: startingframe.width)
-        self.heightConstraint = cv.view.heightAnchor.constraint(equalToConstant: startingframe.height)
+        appFullController.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.topConstraint = self.appFullController.view.topAnchor.constraint(equalTo: self.view.topAnchor, constant: startingframe.origin.y)
+        self.leftConstraint = self.appFullController.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: startingframe.origin.x)
+        self.widthConstraint =  self.appFullController.view.widthAnchor.constraint(equalToConstant: startingframe.width)
+        self.heightConstraint = self.appFullController.view.heightAnchor.constraint(equalToConstant: startingframe.height)
         
         [self.topConstraint,self.leftConstraint,self.widthConstraint,self.heightConstraint].forEach{
             $0?.isActive = true
         }
-        
+        appFullController.view.layoutIfNeeded()
         
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
 //            cv.view.frame = self.view.frame
@@ -71,6 +86,11 @@ class TodayViewController: BaseViewController, UICollectionViewDelegateFlowLayou
             
             self.view.layoutIfNeeded()
              self.tabBarController?.tabBar.transform = CGAffineTransform(translationX: 0, y: 100)
+            
+            guard let cell = self.appFullController.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? TodayFullScreenHeaderCell else {return}
+            cell.today.topConstraint?.constant = 44
+            cell.layoutIfNeeded()
+            
         }, completion: nil)
     }
     
@@ -90,10 +110,14 @@ class TodayViewController: BaseViewController, UICollectionViewDelegateFlowLayou
             self.view.layoutIfNeeded()
             
             self.tabBarController?.tabBar.transform = .identity
+            guard let cell = self.appFullController.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? TodayFullScreenHeaderCell else {return}
+            cell.today.topConstraint?.constant = 24
+            cell.layoutIfNeeded()
+            
             
         }) { _ in
+            self.collectionView.isUserInteractionEnabled = true
             self.appFullController.view?.removeFromSuperview()
-            self.tabBarController?.tabBar.transform = CGAffineTransform(translationX: 0, y: 0)
             self.appFullController.removeFromParent()
         }
         
@@ -102,20 +126,24 @@ class TodayViewController: BaseViewController, UICollectionViewDelegateFlowLayou
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! TodayCell
-        
+        cell.todayResult = todayList[indexPath.item]
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return todayList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: self.view.frame.width-48, height: 450)
+        return .init(width: self.view.frame.width-64, height: 450)
     }
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 20, left: 0, bottom: 20, right: 0)
+        return .init(top: 24, left: 0, bottom: 24, right: 0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 32
     }
 }

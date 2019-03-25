@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F4ACE0822495D18004EC744 /* TodayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4ACE0722495D18004EC744 /* TodayModel.swift */; };
 		0F5D3F472236D94A00DD0C66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F462236D94A00DD0C66 /* AppDelegate.swift */; };
 		0F5D3F492236D94A00DD0C66 /* TabBarNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3F482236D94A00DD0C66 /* TabBarNavController.swift */; };
 		0F5D3F4C2236D94A00DD0C66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F5D3F4A2236D94A00DD0C66 /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		07EEDA98DF1903D0CC853673 /* Pods-AppStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStore.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppStore/Pods-AppStore.release.xcconfig"; sourceTree = "<group>"; };
+		0F4ACE0722495D18004EC744 /* TodayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayModel.swift; sourceTree = "<group>"; };
 		0F5D3F432236D94A00DD0C66 /* AppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F5D3F462236D94A00DD0C66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F5D3F482236D94A00DD0C66 /* TabBarNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarNavController.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				0F5D3F7F2239A22D00DD0C66 /* SocialResult.swift */,
 				0F5D3F8E223EEC8000DD0C66 /* DetailedAppResult.swift */,
 				0F5D3F9C223FEBD600DD0C66 /* ReviewResult.swift */,
+				0F4ACE0722495D18004EC744 /* TodayModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				0F5D3F802239A22D00DD0C66 /* SocialResult.swift in Sources */,
 				0F5D3F97223F090C00DD0C66 /* ReviewAppCell.swift in Sources */,
 				0F5D3F8D223EDE6000DD0C66 /* ExtensionHelp.swift in Sources */,
+				0F4ACE0822495D18004EC744 /* TodayModel.swift in Sources */,
 				0F5D3F682237142300DD0C66 /* Service.swift in Sources */,
 				0F5D3FAD22429ADD00DD0C66 /* TodayViewController.swift in Sources */,
 				0F5D3F652237066C00DD0C66 /* SearchResult.swift in Sources */,
