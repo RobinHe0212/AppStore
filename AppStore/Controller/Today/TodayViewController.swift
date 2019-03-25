@@ -28,15 +28,19 @@ class TodayViewController: BaseViewController, UICollectionViewDelegateFlowLayou
     var heightConstraint : NSLayoutConstraint?
     
     
-    var appFullController : UITableViewController!
+    var appFullController : TodayTableView!
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cv = TodayTableView()
+        
         self.appFullController = cv
        self.addChild(appFullController)
         view.addSubview(appFullController.view)
-        appFullController.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissPopUpView)))
         
-        
+        appFullController.dismissHeader = {
+            
+            self.dismissPopUpView()
+            
+        }
         let cell = collectionView.cellForItem(at: indexPath) // frame based on superview
         print(cell?.frame)
         print(cell?.bounds)
@@ -70,7 +74,7 @@ class TodayViewController: BaseViewController, UICollectionViewDelegateFlowLayou
         }, completion: nil)
     }
     
-    @objc func dismissPopUpView(gesture:UITapGestureRecognizer){
+    @objc func dismissPopUpView(){
         
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
 //            gesture.view?.frame = self.startFrame ?? .zero
@@ -88,7 +92,7 @@ class TodayViewController: BaseViewController, UICollectionViewDelegateFlowLayou
             self.tabBarController?.tabBar.transform = .identity
             
         }) { _ in
-            gesture.view?.removeFromSuperview()
+            self.appFullController.view?.removeFromSuperview()
             self.tabBarController?.tabBar.transform = CGAffineTransform(translationX: 0, y: 0)
             self.appFullController.removeFromParent()
         }
