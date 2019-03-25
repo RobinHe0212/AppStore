@@ -14,7 +14,7 @@ class TodayTableView: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
+        view.backgroundColor = .white
         view.layer.cornerRadius = 16
         tableView.separatorStyle = .none
         tableView.register(TodayTableCell.self, forCellReuseIdentifier: cellId)
@@ -25,14 +25,10 @@ class TodayTableView: UITableViewController {
 
         if indexPath.item == 0 {
             
-            let cell = UITableViewCell()
-            let today = TodayCell()
-            cell.addSubview(today)
-            today.centerInSuperview(size: .init(width: 250, height: 250))
-            return cell
+           return TodayFullScreenHeaderCell()
         }
-        let cell = TodayTableCell()
-        return cell
+        
+        return TodayTableCell()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -40,6 +36,13 @@ class TodayTableView: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 450
+        
+        if indexPath.item == 0 {
+            return 450
+        }else {
+            return super.tableView(tableView, heightForRowAt: indexPath)
+        }
+        
+        
     }
 }

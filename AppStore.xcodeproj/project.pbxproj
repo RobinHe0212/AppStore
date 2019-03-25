@@ -44,6 +44,7 @@
 		0F5D3FB022429C8F00DD0C66 /* TodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3FAF22429C8F00DD0C66 /* TodayCell.swift */; };
 		0F5D3FB22242B30100DD0C66 /* TodayTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3FB12242B30100DD0C66 /* TodayTableView.swift */; };
 		0F5D3FB42242B3F600DD0C66 /* TodayTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3FB32242B3F600DD0C66 /* TodayTableCell.swift */; };
+		0F5D3FCD2249324600DD0C66 /* TodayFullScreenHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5D3FCC2249324600DD0C66 /* TodayFullScreenHeaderCell.swift */; };
 		5FCE8F3A9A407C331B55D40D /* Pods_AppStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A185EACDA1F0C84EB85D61AB /* Pods_AppStore.framework */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +89,7 @@
 		0F5D3FAF22429C8F00DD0C66 /* TodayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCell.swift; sourceTree = "<group>"; };
 		0F5D3FB12242B30100DD0C66 /* TodayTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTableView.swift; sourceTree = "<group>"; };
 		0F5D3FB32242B3F600DD0C66 /* TodayTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTableCell.swift; sourceTree = "<group>"; };
+		0F5D3FCC2249324600DD0C66 /* TodayFullScreenHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayFullScreenHeaderCell.swift; sourceTree = "<group>"; };
 		932228F3452BF7B395F7A249 /* Pods-AppStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppStore/Pods-AppStore.debug.xcconfig"; sourceTree = "<group>"; };
 		A185EACDA1F0C84EB85D61AB /* Pods_AppStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -284,6 +286,7 @@
 				0F5D3FAF22429C8F00DD0C66 /* TodayCell.swift */,
 				0F5D3FB12242B30100DD0C66 /* TodayTableView.swift */,
 				0F5D3FB32242B3F600DD0C66 /* TodayTableCell.swift */,
+				0F5D3FCC2249324600DD0C66 /* TodayFullScreenHeaderCell.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				0F5D3F84223C2CD500DD0C66 /* AppDetailViewController.swift in Sources */,
 				0F5D3F8F223EEC8000DD0C66 /* DetailedAppResult.swift in Sources */,
 				0F5D3F6C22384BC500DD0C66 /* AppViewController.swift in Sources */,
+				0F5D3FCD2249324600DD0C66 /* TodayFullScreenHeaderCell.swift in Sources */,
 				0F5D3F9B223F0C8D00DD0C66 /* RatingCell.swift in Sources */,
 				0F5D3F7022384F4A00DD0C66 /* AppsCell.swift in Sources */,
 				0F5D3F93223EF90900DD0C66 /* ScreenshotCollectionVC.swift in Sources */,
@@ -597,13 +601,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SZV6XCL93K;
+				DEVELOPMENT_TEAM = TNHDKV24RJ;
 				INFOPLIST_FILE = AppStore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = neu.edu.AppStore;
+				PRODUCT_BUNDLE_IDENTIFIER = neu.edu.appStoreRemaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -616,13 +620,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = SZV6XCL93K;
+				DEVELOPMENT_TEAM = TNHDKV24RJ;
 				INFOPLIST_FILE = AppStore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = neu.edu.AppStore;
+				PRODUCT_BUNDLE_IDENTIFIER = neu.edu.appStoreRemaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

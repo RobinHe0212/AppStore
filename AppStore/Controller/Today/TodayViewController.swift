@@ -22,6 +22,12 @@ class TodayViewController: BaseViewController, UICollectionViewDelegateFlowLayou
 
     var startFrame : CGRect?
     
+    var topConstraint : NSLayoutConstraint?
+    var leftConstraint : NSLayoutConstraint?
+    var widthConstraint : NSLayoutConstraint?
+    var heightConstraint : NSLayoutConstraint?
+    
+    
     var appFullController : UITableViewController!
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cv = TodayTableView()
@@ -38,8 +44,28 @@ class TodayViewController: BaseViewController, UICollectionViewDelegateFlowLayou
         print("starting frame is \(startingframe)")
         cv.view.frame = startingframe
         startFrame = startingframe
+        
+        // use auto constraints to fix the moving-up effect glitch
+
+        cv.view.translatesAutoresizingMaskIntoConstraints = false
+        self.topConstraint = cv.view.topAnchor.constraint(equalTo: self.view.topAnchor, constant: startingframe.origin.y)
+        self.leftConstraint = cv.view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: startingframe.origin.x)
+        self.widthConstraint =  cv.view.widthAnchor.constraint(equalToConstant: startingframe.width)
+        self.heightConstraint = cv.view.heightAnchor.constraint(equalToConstant: startingframe.height)
+        
+        [self.topConstraint,self.leftConstraint,self.widthConstraint,self.heightConstraint].forEach{
+            $0?.isActive = true
+        }
+        
+        
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
-            cv.view.frame = self.view.frame
+//            cv.view.frame = self.view.frame
+            self.topConstraint?.constant = 0
+            self.leftConstraint?.constant = 0
+            self.widthConstraint?.constant = self.view.frame.width
+            self.heightConstraint?.constant = self.view.frame.height
+            
+            self.view.layoutIfNeeded()
              self.tabBarController?.tabBar.transform = CGAffineTransform(translationX: 0, y: 100)
         }, completion: nil)
     }
@@ -47,7 +73,19 @@ class TodayViewController: BaseViewController, UICollectionViewDelegateFlowLayou
     @objc func dismissPopUpView(gesture:UITapGestureRecognizer){
         
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
-            gesture.view?.frame = self.startFrame!
+//            gesture.view?.frame = self.startFrame ?? .zero
+            // back to origin position
+            self.appFullController.tableView.contentOffset = .zero
+            
+            guard let start = self.startFrame else{return}
+            self.topConstraint?.constant = start.origin.y
+            self.leftConstraint?.constant = start.origin.x
+            self.widthConstraint?.constant = start.width
+            self.heightConstraint?.constant = start.height
+            
+            self.view.layoutIfNeeded()
+            
+            self.tabBarController?.tabBar.transform = .identity
             
         }) { _ in
             gesture.view?.removeFromSuperview()
