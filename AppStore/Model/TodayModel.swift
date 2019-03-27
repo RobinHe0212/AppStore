@@ -16,4 +16,10 @@ struct TodayModel {
     let desc : String
     let bgc : UIColor
     
+    let cellType : CellEnum
+    
+    enum CellEnum : String {
+        case singleCell,MultiCell
+    }
+    
 }

@@ -27,10 +27,13 @@ class TodayFullScreenHeaderCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        addSubview(closeBtn)
+        
         addSubview(today)
-        today.centerInSuperview()
-        closeBtn.anchor(top: topAnchor, leading: nil, bottom: nil, trailing: trailingAnchor,padding: .init(top: 20, left: 0, bottom: 0, right: 25),size: .init(width: 40, height: 40))
+        today.fillSuperview()
+       
+        addSubview(closeBtn)
+        
+        closeBtn.anchor(top: topAnchor, leading: nil, bottom: nil, trailing: trailingAnchor,padding: .init(top: 32, left: 0, bottom: 0, right: 20),size: .init(width: 80, height: 40))
     }
     
     required init?(coder aDecoder: NSCoder) {

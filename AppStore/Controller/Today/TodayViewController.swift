@@ -11,12 +11,13 @@ import UIKit
 
 class TodayViewController: BaseViewController, UICollectionViewDelegateFlowLayout {
 
-    let cellId = "cellId"
+    
     
     let todayList  = [
-        TodayModel.init(title: "LIFE HACK", subTitle: "Utilizing your Time", image: UIImage(named:"garden")!, desc: "All the tools and apps you need to intelligently organize your life the right way", bgc: UIColor.white),
-        TodayModel.init(title: "HOLIDAYS", subTitle: "Travel on a Budget", image: UIImage(named:"holiday")!, desc: "Find out all you need ti know on how to travel without packing everything", bgc: #colorLiteral(red: 0.9843137255, green: 0.9607843137, blue: 0.7529411765, alpha: 1))
+        TodayModel.init(title: "LIFE HACK", subTitle: "Utilizing your Time", image: UIImage(named:"garden")!, desc: "All the tools and apps you need to intelligently organize your life the right way", bgc: UIColor.white,cellType: TodayModel.CellEnum.singleCell),
+        TodayModel.init(title: "HOLIDAYS", subTitle: "Travel on a Budget", image: UIImage(named:"holiday")!, desc: "Find out all you need ti know on how to travel without packing everything", bgc: #colorLiteral(red: 0.9843137255, green: 0.9607843137, blue: 0.7529411765, alpha: 1),cellType: TodayModel.CellEnum.singleCell),
         
+        TodayModel.init(title: "MultiCell", subTitle: "Test-Drive These CarPlay Apps", image: UIImage(named: "garden")!, desc: "", bgc: UIColor.white,cellType: TodayModel.CellEnum.MultiCell)
        
     
     ]
@@ -26,7 +27,9 @@ class TodayViewController: BaseViewController, UICollectionViewDelegateFlowLayou
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         collectionView.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1)
-        collectionView.register(TodayCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(TodayCell.self, forCellWithReuseIdentifier: TodayModel.CellEnum.singleCell.rawValue)
+        collectionView.register(TodayMultiCell.self, forCellWithReuseIdentifier: TodayModel.CellEnum.MultiCell.rawValue)
+        
     }
 
     var startFrame : CGRect?
@@ -125,7 +128,10 @@ class TodayViewController: BaseViewController, UICollectionViewDelegateFlowLayou
     
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! TodayCell
+        
+        let cellId = todayList[indexPath.item].cellType.rawValue
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! BaseCell
         cell.todayResult = todayList[indexPath.item]
         return cell
     }
