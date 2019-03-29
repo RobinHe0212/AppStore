@@ -14,7 +14,9 @@ class TodayMultiCell: BaseCell {
         didSet{
           title.text = todayResult?.title
         subTitle.text = todayResult?.subTitle
-            
+            uiCollectionVC.result = todayResult?.appContent
+
+            uiCollectionVC.collectionView.reloadData()
         }
         
     }
@@ -22,14 +24,14 @@ class TodayMultiCell: BaseCell {
     
     let title = UILabel(text: "LIFE HACK", font: 20)
     let subTitle = UILabel(text: "Utilizing your Time", font: 22)
-    
+    let uiCollectionVC = MultiCenterCollectionViewController()
     
     var topConstraint : NSLayoutConstraint?
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
         self.layer.cornerRadius = 16
-        let uiCollectionVC = MultiCenterCollectionViewController()
+        
 
         let stackView = VerticalStackView(arrangeView: [
             title,

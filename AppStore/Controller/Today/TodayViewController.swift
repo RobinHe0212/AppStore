@@ -13,18 +13,68 @@ class TodayViewController: BaseViewController, UICollectionViewDelegateFlowLayou
 
     
     
-    let todayList  = [
-        TodayModel.init(title: "LIFE HACK", subTitle: "Utilizing your Time", image: UIImage(named:"garden")!, desc: "All the tools and apps you need to intelligently organize your life the right way", bgc: UIColor.white,cellType: TodayModel.CellEnum.singleCell),
-        TodayModel.init(title: "HOLIDAYS", subTitle: "Travel on a Budget", image: UIImage(named:"holiday")!, desc: "Find out all you need ti know on how to travel without packing everything", bgc: #colorLiteral(red: 0.9843137255, green: 0.9607843137, blue: 0.7529411765, alpha: 1),cellType: TodayModel.CellEnum.singleCell),
+
+    var todayList = [TodayModel]()
+    
+    let activityIndicator : UIActivityIndicatorView = {
+        let acti = UIActivityIndicatorView(style: .whiteLarge)
+        acti.color = UIColor.darkGray
+        acti.hidesWhenStopped = true
+        acti.startAnimating()
+        return acti
         
-        TodayModel.init(title: "MultiCell", subTitle: "Test-Drive These CarPlay Apps", image: UIImage(named: "garden")!, desc: "", bgc: UIColor.white,cellType: TodayModel.CellEnum.MultiCell)
-       
-    
-    ]
-    
+        
+        
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.addSubview(activityIndicator)
+        activityIndicator.centerInSuperview()
+        
+        let group = DispatchGroup()
+        var topGrossingResult : AppsResult?
+        var topFreeResult : AppsResult?
+        
+        group.enter()
+        Service.shared.fetchTopFree { (app, err) in
+            topGrossingResult = app
+            group.leave()
+            if err != nil {
+                print("error is \(err)")
+                return
+            }
+            
+            
+        }
+        group.enter()
+        Service.shared.fetchTopGrossing { (app, err) in
+            topFreeResult = app
+            group.leave()
+            if err != nil {
+                print("error is \(err)")
+                return
+            }
+        }
+        group.notify(queue: .main) {
+            self.activityIndicator.stopAnimating()
+            self.todayList = [
+                
+                
+                TodayModel.init(title: "Daily List", subTitle: topFreeResult?.feed.title ?? "" , image: UIImage(named: "holiday")!, desc: "", bgc: UIColor.white, appContent: topFreeResult?.feed.results ?? [],cellType: TodayModel.CellEnum.MultiCell),
+                TodayModel.init(title: "Daily List", subTitle: topGrossingResult?.feed.title ?? "" , image: UIImage(named: "holiday")!, desc: "", bgc: UIColor.white, appContent: topGrossingResult?.feed.results ?? [] ,cellType: TodayModel.CellEnum.MultiCell),
+                TodayModel.init(title: "LIFE HACK", subTitle: "Utilizing your Time", image: UIImage(named:"garden")!, desc: "All the tools and apps you need to intelligently organize your life the right way", bgc: UIColor.white, appContent: [],cellType: TodayModel.CellEnum.singleCell),
+                TodayModel.init(title: "HOLIDAYS", subTitle: "Travel on a Budget", image: UIImage(named:"holiday")!, desc: "Find out all you need ti know on how to travel without packing everything", bgc: #colorLiteral(red: 0.9843137255, green: 0.9607843137, blue: 0.7529411765, alpha: 1), appContent: [],cellType: TodayModel.CellEnum.singleCell)
+                
+                
+            
+            
+            ]
+            print("finished fetching")
+            self.collectionView.reloadData()
+        }
+        
+        
         navigationController?.navigationBar.isHidden = true
         collectionView.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1)
         collectionView.register(TodayCell.self, forCellWithReuseIdentifier: TodayModel.CellEnum.singleCell.rawValue)

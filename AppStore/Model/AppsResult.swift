@@ -16,7 +16,7 @@ struct AppsResult : Decodable {
 
 struct Content : Decodable {
     let title : String
-    let results : [AppContent]
+    var results : [AppContent]
 }
 
 struct AppContent : Decodable {

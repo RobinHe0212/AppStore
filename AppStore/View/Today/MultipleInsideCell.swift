@@ -33,7 +33,7 @@ class MultipleInsideCell: UICollectionViewCell {
         stackView.alignment = .center
     }
     
-    let icon = UIImageView(image: "", angle: 12)
+    let icon = UIImageView(image:"star", angle: 12)
     let nameLabel = UILabel(text: "NameLabel", font: 15)
     let companyLabel = UILabel(text: "CompanyLabel", font: 12)
     let addBtn = UIButton(name: "Add")
