@@ -34,7 +34,7 @@ class MultipleInsideCell: UICollectionViewCell {
     }
     
     let icon = UIImageView(image:"star", angle: 12)
-    let nameLabel = UILabel(text: "NameLabel", font: 15)
+    let nameLabel = UILabel(text: "NameLabel", font: 15, numberOfLine : 1)
     let companyLabel = UILabel(text: "CompanyLabel", font: 12)
     let addBtn = UIButton(name: "Add")
     

@@ -26,6 +26,12 @@ class TodayViewController: BaseViewController, UICollectionViewDelegateFlowLayou
         
         
     }()
+    // fix tabbar moving up glitch
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.superview?.setNeedsLayout()
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +50,6 @@ class TodayViewController: BaseViewController, UICollectionViewDelegateFlowLayou
                 print("error is \(err)")
                 return
             }
-            
-            
         }
         group.enter()
         Service.shared.fetchTopGrossing { (app, err) in
@@ -92,6 +96,15 @@ class TodayViewController: BaseViewController, UICollectionViewDelegateFlowLayou
     
     var appFullController : TodayTableView!
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if todayList[indexPath.item].cellType == .MultiCell {
+            
+            let view = MultiCenterCollectionViewController(model: .fullScreen)
+            view.result = todayList[indexPath.item].appContent
+            present(BackSwipeController(rootViewController: view) ,animated: true)
+            return
+        }
+        
         let cv = TodayTableView()
         
         self.appFullController = cv
@@ -183,7 +196,32 @@ class TodayViewController: BaseViewController, UICollectionViewDelegateFlowLayou
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! BaseCell
         cell.todayResult = todayList[indexPath.item]
+        
+        (cell as? TodayMultiCell)?.uiCollectionVC.collectionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapMulti)))
+        
         return cell
+    }
+    
+    @objc func tapMulti(gesture:UIGestureRecognizer){
+        let collectionView = gesture.view
+        var superview = collectionView?.superview
+        
+        while superview != nil {
+           if let cell = superview as? TodayMultiCell {
+            guard let indexPath = self.collectionView.indexPath(for:cell ) else {return}
+                let apps = self.todayList[indexPath.item].appContent
+                let vc = MultiCenterCollectionViewController(model: .fullScreen)
+                vc.result = apps
+            
+                present(vc,animated: true)
+                
+                
+            
+            }
+           superview = superview?.superview
+        }
+      
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

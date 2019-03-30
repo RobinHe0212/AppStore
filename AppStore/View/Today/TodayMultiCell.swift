@@ -24,7 +24,7 @@ class TodayMultiCell: BaseCell {
     
     let title = UILabel(text: "LIFE HACK", font: 20)
     let subTitle = UILabel(text: "Utilizing your Time", font: 22)
-    let uiCollectionVC = MultiCenterCollectionViewController()
+    let uiCollectionVC = MultiCenterCollectionViewController(model: .small)
     
     var topConstraint : NSLayoutConstraint?
     override init(frame: CGRect) {
