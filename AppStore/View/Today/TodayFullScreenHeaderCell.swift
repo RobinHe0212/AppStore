@@ -26,7 +26,9 @@ class TodayFullScreenHeaderCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+        today.layer.cornerRadius = 0
+        today.backgroundView?.layer.cornerRadius = 0
+        today.clipsToBounds = true
         
         addSubview(today)
         today.fillSuperview()

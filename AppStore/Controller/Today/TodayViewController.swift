@@ -213,7 +213,7 @@ class TodayViewController: BaseViewController, UICollectionViewDelegateFlowLayou
                 let vc = MultiCenterCollectionViewController(model: .fullScreen)
                 vc.result = apps
             
-                present(vc,animated: true)
+            present(BackSwipeController(rootViewController:vc),animated: true)
                 
                 
             
