@@ -11,6 +11,14 @@ import UIKit
 class TodayTableView: UITableViewController {
     
     
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y < 0 {
+            self.tableView.isScrollEnabled = false
+            self.tableView.isScrollEnabled = true
+        }
+    }
+    
+    
     var result : TodayModel?
     
     

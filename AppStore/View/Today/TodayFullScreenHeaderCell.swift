@@ -17,7 +17,7 @@ class TodayFullScreenHeaderCell: UITableViewCell {
         
         let close = UIButton(type: .system)
         close.setImage(UIImage(named: "close_button"), for: .normal)
-        
+        close.tintColor = .lightGray
         return close
         
     }()
