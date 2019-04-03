@@ -268,7 +268,7 @@ class TodayViewController: BaseViewController, UICollectionViewDelegateFlowLayou
             
             self.tabBarController?.tabBar.transform = .identity
             guard let cell = self.appFullController.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? TodayFullScreenHeaderCell else {return}
-            cell.closeBtn.alpha = 0
+            self.appFullController.closeBtn.alpha = 0
             cell.today.topConstraint?.constant = 24
             cell.layoutIfNeeded()
             
