@@ -255,6 +255,8 @@ class TodayViewController: BaseViewController, UICollectionViewDelegateFlowLayou
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
 //            gesture.view?.frame = self.startFrame ?? .zero
             // back to origin position
+            self.blurEffectView.alpha = 0
+
             self.appFullController.view.transform = .identity
             
             self.appFullController.tableView.contentOffset = .zero
@@ -274,6 +276,7 @@ class TodayViewController: BaseViewController, UICollectionViewDelegateFlowLayou
             
             
         }) { _ in
+            self.blurEffectView.alpha = 0
             self.collectionView.isUserInteractionEnabled = true
             self.appFullController.view?.removeFromSuperview()
             self.appFullController.removeFromParent()

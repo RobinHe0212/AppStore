@@ -15,7 +15,31 @@ class TodayTableView: UIViewController, UITableViewDelegate, UITableViewDataSour
         if scrollView.contentOffset.y < 0 {
             self.tableView.isScrollEnabled = false
             self.tableView.isScrollEnabled = true
+
         }
+        
+        
+            if scrollView.contentOffset.y > 100 {
+                if self.floatingContainerView.transform == .identity {
+                
+                UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
+                    
+                    self.floatingContainerView.transform = .init(translationX: 0, y: -90 - UIApplication.shared.statusBarFrame.height)
+                }, completion: nil)
+                }
+            }else {
+                UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseOut, animations: {
+                    
+                    self.floatingContainerView.transform = .identity
+                }, completion: nil)
+                
+            }
+            
+            
+        
+        
+        
+        
     }
     
     
@@ -38,7 +62,68 @@ class TodayTableView: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
         tableView.contentInsetAdjustmentBehavior = .never
+        self.view.addSubview(floatingContainerView)
+        floatingContainerView.anchor(top: nil, leading: self.view.leadingAnchor, bottom: self.view.bottomAnchor, trailing: self.view.trailingAnchor, padding: .init(top: 0, left: 10, bottom: -90, right: 10), size: .init(width: 0, height: 90))
+        setUpFloatingView()
+        
     }
+    
+    fileprivate func setUpFloatingView(){
+        
+        let image = UIImageView()
+        image.constrainWidth(constant: 65)
+        image.constrainHeight(constant: 65)
+        image.image = result?.image
+        let title = UILabel()
+        title.font = UIFont.systemFont(ofSize: 15)
+        title.text = result?.title
+        let subTitle = UILabel()
+        subTitle.font = UIFont.systemFont(ofSize: 12)
+        subTitle.text = result?.subTitle
+        let btn = UIButton(name: "Get")
+        
+        
+        let stackView = UIStackView(arrangedSubviews:
+            [
+                image,
+                VerticalStackView(arrangeView:
+                    [
+                        title,
+                        subTitle
+                    
+                    ]
+                    
+                    , spacing: 5),
+                btn
+            
+            ]
+            
+            
+            , customedSpacing: 10)
+        stackView.alignment = .center
+        let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
+        floatingContainerView.addSubview(blurEffectView)
+        blurEffectView.fillSuperview()
+        floatingContainerView.addSubview(stackView)
+        stackView.fillSuperview(padding: .init(top: 0, left: 10, bottom: 0, right: 10))
+        
+     
+        
+    }
+    
+
+    
+    
+    let floatingContainerView : UIView = {
+        let view = UIView()
+        view.layer.masksToBounds = true
+        view.layer.cornerRadius = 12
+        return view
+        
+    }()
+    
+    
+    
     
     fileprivate func setUpCloseBtn(){
         
